@@ -1,0 +1,36 @@
+#include <iostream>
+//BRUTE FORCE
+using namespace std;
+long long int fact(int n)
+{
+    if(n==0||n==1)
+    {
+        return 1;
+    }
+    return n*fact(n-1);
+}
+long long int trailingzeroes(int n)
+{
+    long long int f=fact(n);
+    long long int count=0;
+    while(f>0)
+    {
+        if(f%10==0)
+        {
+            count++;
+            f=f/10;
+        }
+        else{
+            break;
+        }
+
+    }
+    return count;
+}
+int main()
+{
+    long long int n;
+    cin>>n;
+    cout<<trailingzeroes( n);
+    return 0;
+}
